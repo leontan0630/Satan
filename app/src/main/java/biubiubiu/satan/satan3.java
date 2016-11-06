@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -146,37 +147,44 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
                     mon = st1[0];
                     day = st1[1];
                     yer = st1[2];
-                    System.out.println(".."+str);
+                    int mm = Integer.parseInt(mon);
+                    int dd = Integer.parseInt(day);
+                    int yy = Integer.parseInt(yer);
+                   /* System.out.println(".."+str);
                     System.out.println(mon);
                     System.out.println(day);
-                    System.out.println(yer);
+                    System.out.println(yer);*/
+                    if((1 <= mm && mm <= 12) && (1 <= dd && dd <= 31)) {
 
-                    if(o1 == false && o2 == false && o3 == false){
-                       // System.out.println("yes");
-                        if(str.equals(mon)){
+                        if (o1 == false && o2 == false && o3 == false) {
+                            // System.out.println("yes");
+                            if (str.equals(mon)) {
 
-                            z.setText(mon+"/##/##");
-                            o1 = true;
+                                z.setText(mon + "/##/##");
+                                o1 = true;
+                            }
+                        } else if (o1 == true && o2 == false && o3 == false) {
+                            if (str.equals(day)) {
+
+                                z.setText(mon + "/" + day + "/##");
+                                o2 = true;
+                            }
+                        } else if (o1 == true && o2 == true && o3 == false) {
+                            if (str.equals(yer)) {
+
+                                z.setText(mon + "/" + day + "/" + yer);
+                                o3 = true;
+                            }
                         }
                     }
-                    else if(o1 == true && o2 == false && o3 == false){
-                        if(str.equals(day)){
-
-                            z.setText(mon+ "/" + day + "/##");
-                            o2 = true;
-                        }
-                    }
-                    else if(o1 == true && o2 == true && o3 == false){
-                        if(str.equals(yer)){
-
-                            z.setText(mon+ "/" + day + "/" + yer);
-                            o3 = true;
-                        }
+                    else{
+                        e.setText("Please enter your birth day",TextView.BufferType.EDITABLE);
                     }
                 }
                 catch (Exception ex){
                     e.setText("Please enter your birth day",TextView.BufferType.EDITABLE);
                 }
+
             }
         });
 
