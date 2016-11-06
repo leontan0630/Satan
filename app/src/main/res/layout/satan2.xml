@@ -12,15 +12,6 @@
     tools:context="biubiubiu.satan.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:id="@+id/textView11"
-        android:layout_below="@+id/editText2"
-        android:layout_toLeftOf="@+id/textView14"
-        android:layout_toStartOf="@+id/textView14" />
-
-    <TextView
         android:text="-"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,16 +22,6 @@
         android:layout_toEndOf="@+id/textView6"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp" />
-
-    <Button
-        android:text="CHECK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:id="@+id/button20"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textView13"
-        android:layout_toStartOf="@+id/textView13" />
 
     <EditText
         android:layout_width="match_parent"
@@ -54,14 +35,15 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Add 1"
+        android:text="add 1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/b1"
         android:layout_marginBottom="20dp"
         android:layout_above="@+id/button20"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@android:drawable/alert_light_frame" />
 
     <TextView
         android:text="-"
@@ -75,25 +57,6 @@
         android:layout_toStartOf="@+id/button19"
         android:layout_marginRight="12dp"
         android:layout_marginEnd="12dp" />
-
-    <Button
-        android:text="SCREW THIS!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button20"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:id="@+id/button24" />
-
-    <Button
-        android:text="SELECT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button19"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,28 +93,58 @@
         android:layout_toRightOf="@+id/button19"
         android:layout_toEndOf="@+id/button19" />
 
+    <Button
+            android:text="NEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/b2"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/alert_light_frame" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="textView11"
         android:textSize="24sp"
-        android:layout_marginBottom="12dp"
-        android:layout_above="@+id/b1"
-        android:layout_toLeftOf="@+id/b2"
-        android:layout_toStartOf="@+id/b2" />
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/button18"
+        android:layout_centerHorizontal="true" />
 
     <Button
-            android:text="NEXT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/b2"
-        android:layout_alignBaseline="@+id/button18"
-        android:layout_alignBottom="@+id/button18"
-        android:layout_alignLeft="@+id/button24"
-        android:layout_alignStart="@+id/button24"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp" />
+        android:text="CHECK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/button20"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:drawable/presence_online" />
+
+    <Button
+        android:text="SCREW THIS!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button24"
+        android:layout_alignBaseline="@+id/back"
+        android:layout_alignBottom="@+id/back"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/presence_invisible" />
+
+    <Button
+        android:text="back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
+        android:layout_alignBaseline="@+id/button20"
+        android:layout_alignBottom="@+id/button20"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
+        android:background="@android:drawable/ic_menu_revert" />
 
     <Button
         android:text="Set"
@@ -160,7 +153,28 @@
         android:id="@+id/button18"
         android:layout_alignBaseline="@+id/b1"
         android:layout_alignBottom="@+id/b1"
-        android:layout_toLeftOf="@+id/button24"
-        android:layout_toStartOf="@+id/button24" />
+        android:layout_alignLeft="@+id/back"
+        android:layout_alignStart="@+id/back"
+        android:background="@android:drawable/alert_light_frame" />
+
+    <Button
+        android:text="SELECT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button19"
+        android:background="@android:drawable/progress_horizontal"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView11"
+        android:layout_below="@+id/editText2"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp" />
 
 </RelativeLayout>

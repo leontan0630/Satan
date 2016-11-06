@@ -3,6 +3,7 @@ package biubiubiu.satan;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.KeyListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class satan1 extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                num9.setText("");
                 if(input1.length()==8){
                     input1.setEnabled(false);
                 }
@@ -91,6 +93,7 @@ public class satan1 extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                num9.setText("");
                 fin="";
                 temp = (TextView) findViewById(R.id.textView1);
                 temp.setText("");
@@ -110,13 +113,36 @@ public class satan1 extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                try{
+                //input1.setKeyListener((KeyListener) input1.getTag());
                 input2=input1.getText().toString();
-                if(input2.equals(fin)&& !input2.equals("")){
+                if(input2.equals(fin.substring(0,8))&& !input2.equals("")){
                     num9.setText("WINNER OF THE HACKATHAON");
                 }
                 else{
                     num9.setText("TRY AGAIN LOVE!");
+                    num1.setText("");
+                    num2.setText("");
+                    num3.setText("");
+                    num4.setText("");
+                    num5.setText("");
+                    num6.setText("");
+                    num7.setText("");
+                    num8.setText("");
                 }
+                }
+                catch(Exception e){
+                    num9.setText("TRY AGAIN LOVE!");
+                    num1.setText("");
+                    num2.setText("");
+                    num3.setText("");
+                    num4.setText("");
+                    num5.setText("");
+                    num6.setText("");
+                    num7.setText("");
+                    num8.setText("");
+                }
+
             }
         });
         b4.setOnClickListener(new View.OnClickListener(){

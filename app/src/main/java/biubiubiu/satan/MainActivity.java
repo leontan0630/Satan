@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
     EditText i;
     EditText j;
     EditText k;
-
     Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         u = (TextView)findViewById(R.id.textView2);
         v = (TextView)findViewById(R.id.textView3);
         a = (TextView)findViewById(R.id.textView4);
@@ -33,19 +33,18 @@ public class MainActivity extends AppCompatActivity {
         i = (EditText)findViewById(R.id.editText);
         j = (EditText)findViewById(R.id.editText2);
         k = (EditText)findViewById(R.id.editText3);
+
         b = (Button)findViewById(R.id.button);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, satan3.class);
-                startActivity(i);
                 String s1 = i.getText().toString();
                 String s2 = j.getText().toString();
                 String s3 = k.getText().toString();
                 System.out.println("i= " + s1);
                 System.out.println("j= " + s2);
                 System.out.println("k= " + s3);
-                if(!s1.isEmpty()&& !s2.isEmpty() && !s3.isEmpty() && !s1.equals("Enter your first name") && !s2.equals("Enter your last name") && !s3.equals("Enter your first e-mail address")){
+                if(!s1.isEmpty()&& !s2.isEmpty() && !s3.isEmpty()){
                     Intent i = new Intent(MainActivity.this, satan3.class);
                     startActivity(i);
                 }

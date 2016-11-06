@@ -29,6 +29,7 @@ public class satan2 extends AppCompatActivity {
     Button b19;
     Button b20;
     Button b24;
+    Button back;
     int i = 0;
     boolean be;
     @Override
@@ -47,6 +48,7 @@ public class satan2 extends AppCompatActivity {
         tv11 = (TextView)findViewById(R.id.textView11);
         b20 = (Button)findViewById(R.id.button20);
         b24 = (Button)findViewById(R.id.button24);
+        back=(Button)findViewById(R.id.back);
         b24.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent i = new Intent(satan2.this, satan1.class);
@@ -65,14 +67,14 @@ public class satan2 extends AppCompatActivity {
         }
         });
         b20.setOnClickListener(  new View.OnClickListener(){public void onClick(View view) {
-            try {
-                int checkC = 1000000*Integer.parseInt((String)tv.getText()) + 1000*Integer.parseInt((String)tv6.getText())+Integer.parseInt((String)tv7.getText());
-                if (Integer.parseInt((String)tv11.getText()) == checkC) {
+
+                String checkC = (String)tv.getText()+(String)tv6.getText()+(String)tv7.getText();
+                try {   if (tv11.getText().equals(checkC)&&!tv11.getText().equals("")) {
                     be = true;
                     Intent i = new Intent(satan2.this, satan1.class);
                     startActivity(i);
                 } else {
-                    be = false;
+                    tv11.setText("Must Enter Correct Combination");
                 }
             }catch(Exception e){
                 tv11.setText("Must be 10 characters long.");
@@ -81,7 +83,11 @@ public class satan2 extends AppCompatActivity {
         });
         b3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(eT.getText().length()==10){
+                if(!a){
+                    tv11.setText("Must comfirm your number");
+                }
+                else if(eT.getText().length()==10){
+                    tv11.setText("");
                     if(temp.getText()!= "") {
                         i = i + 1;
                     }
@@ -121,12 +127,18 @@ public class satan2 extends AppCompatActivity {
         b.setOnClickListener(
                 new View.OnClickListener(){public void onClick(View view) {
                     try {
-                        temp.setText(String.valueOf(String.valueOf(Integer.parseInt((String) temp.getText()) + 1)));
+                        if(!a){
+                            tv11.setText("Must comfirm your number");
+                        }
+                        else{
+                            tv11.setText("");
+                        temp.setText(String.valueOf(String.valueOf(Integer.parseInt((String) temp.getText()) + 1)));}
                     }catch(Exception e){
+
                         if(eT.getText().length()==10){
-                            tv11.setText("Must be 10 characters long.");
-                        }else if(temp.getText()==""){
                             tv11.setText("press NEXT FIRST");
+                        }else if(temp.getText()==""){
+                            tv11.setText("Must be 10 characters long.");
                         }
                     }
                 }
@@ -135,10 +147,21 @@ public class satan2 extends AppCompatActivity {
         b2 = (Button)findViewById(R.id.b2);
         b2.setOnClickListener( new View.OnClickListener(){
             public void onClick(View view) {
-                if(eT.getText().length()==10){
-                    temp.setText(String.valueOf(x));}else{
+                if(!a){
+                    tv11.setText("Must comfirm your number");
+                }
+                else if(eT.getText().length()==10){
+                    temp.setText(String.valueOf(x));
+                    tv11.setText("");
+                }else{
                     tv11.setText("Must be 10 characters long.");
                 }
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent i = new Intent(satan2.this, satan3.class);
+                startActivity(i);
             }
         });
 
