@@ -38,7 +38,8 @@
         android:layout_marginBottom="32dp"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/progress_horizontal" />
 
     <EditText
         android:layout_width="wrap_content"
