@@ -62,24 +62,26 @@
         android:id="@+id/c2" />
 
     <Button
-        android:text="CONFIRM"
+        android:text="VERIFY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/b2"
         android:layout_alignBaseline="@+id/c2"
         android:layout_alignBottom="@+id/c2"
         android:layout_alignLeft="@+id/b1"
-        android:layout_alignStart="@+id/b1" />
+        android:layout_alignStart="@+id/b1"
+        android:background="@android:drawable/alert_light_frame" />
 
     <Button
         android:text="CONTINUE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/finish"
+        android:id="@+id/b3"
         android:layout_marginTop="74dp"
         android:layout_below="@+id/b2"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/toast_frame" />
 
     <TextView
         android:text="*Verify your birthday before continue "
@@ -92,29 +94,51 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="CHECK"
+        android:text="TEST"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/b1"
         android:layout_below="@+id/bd1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@android:drawable/alert_light_frame" />
 
     <Button
         android:text="SKIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/finish"
+        android:layout_alignBottom="@+id/b3"
         android:layout_alignRight="@+id/b2"
         android:layout_alignEnd="@+id/b2"
-        android:id="@+id/back" />
+        android:id="@+id/b4"
+        android:background="@android:drawable/presence_invisible" />
 
     <Button
         android:text="BACK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/back"
+        android:layout_alignBottom="@+id/b4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/b5" />
+        android:id="@+id/b5"
+        android:background="@android:drawable/toast_frame" />
+
+    <TextView
+        android:text="TIME REMAIN: 50000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/t1" />
+
+    <TextView
+        android:text="TIME ELAPSED: 0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/t2"
+        android:layout_below="@+id/t1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
