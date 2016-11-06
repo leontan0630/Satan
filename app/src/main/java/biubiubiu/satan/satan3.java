@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.CountDownTimer;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
     TextView z;
     TextView u;
     TextView v;
+    TextView text1;
+    TextView text2;
     EditText e;
     Button b;
     Button bb;
@@ -39,6 +42,10 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
     String mon;
     String day;
     String yer;
+
+    final long start = 50000;
+    final long interval = 500;
+    long rest = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +61,12 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
         v = (TextView)findViewById(R.id.br2);
         e = (EditText)findViewById((R.id.bd1));
 
+        text1 = (TextView)findViewById(R.id.t1);
+        text2 = (TextView)findViewById(R.id.t2);
+        MalibuCountDownTimer countDownTimer = new MalibuCountDownTimer(start, interval);
+        countDownTimer.start();
 
-        b = (Button)findViewById(R.id.b1);
+                b = (Button)findViewById(R.id.b1);
         b.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -235,5 +246,28 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+    public class MalibuCountDownTimer extends CountDownTimer
+    {
+
+        public MalibuCountDownTimer(long start, long interval)
+        {
+            super(start, interval);
+        }
+
+        @Override
+        public void onFinish()
+        {
+            Intent i = new Intent(satan3.this, MainActivity.class);
+            startActivity(i);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished)
+        {
+            text1.setText("TIME REMAIN: " + millisUntilFinished);
+            rest = start - millisUntilFinished;
+            text2.setText("TIME ELAPSED: " + String.valueOf(rest));
+        }
     }
 }

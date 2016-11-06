@@ -122,4 +122,23 @@
         android:id="@+id/b5"
         android:background="@android:drawable/toast_frame" />
 
+    <TextView
+        android:text="TIME REMAIN: 50000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/t1" />
+
+    <TextView
+        android:text="TIME ELAPSED: 0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/t2"
+        android:layout_below="@+id/t1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
