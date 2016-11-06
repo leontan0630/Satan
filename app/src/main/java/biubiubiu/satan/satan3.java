@@ -43,7 +43,7 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
     String day;
     String yer;
 
-    final long start = 50000;
+    final long start = 60000;
     final long interval = 500;
     long rest = 0;
     @Override
@@ -71,11 +71,72 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
 
             @Override
             public void onClick(View v) {
-                final float m = t1;
+
+                String s1 = e.getText().toString();
+
+                String s;
+                s = (String)y.getText();
+                String[] st = s.split(" ");
+                str = st[1];
+
+                try{
+                    String[] st1 = s1.split("/");
+                    mon = st1[0];
+                    day = st1[1];
+                    yer = st1[2];
+                    int mm = Integer.parseInt(mon);
+                    int dd = Integer.parseInt(day);
+                    // int yy = Integer.parseInt(yer);
+                   //System.out.println(".."+str);
+                    System.out.println(mon);
+                    System.out.println(day);
+                    System.out.println(yer);
+
+                    if((1 <= mm && mm <= 12) && (1 <= dd && dd <= 31)) {
+                        System.out.println(s1);
+                        if (o1 == false && o2 == false && o3 == false) {
+                            // System.out.println("yes");
+                            if (str.equals(mon)) {
+
+                                z.setText(mon + "/##/##");
+                                o1 = true;
+                            }
+                            else{
+                                z.setText(str + "/##/##");
+                            }
+
+                        } else if (o1 == true && o2 == false && o3 == false) {
+                            if (str.equals(day)) {
+
+                                z.setText(mon + "/" + day + "/##");
+                                o2 = true;
+                            }
+                            else{
+                                z.setText(mon + "/" + str + "/##");
+                            }
+                        } else if (o1 == true && o2 == true && o3 == false) {
+                            if (str.equals(yer)) {
+
+                                z.setText(mon + "/" + day + "/" + yer);
+                                o3 = true;
+                            }
+                            else{
+                                z.setText(mon + "/" + day + "/" + str);
+                            }
+                        }
+                    }
+                    else{
+                        e.setText("Please enter your birth day",TextView.BufferType.EDITABLE);
+                    }
+                }
+                catch (Exception ex){
+                    e.setText("Please enter your birth day",TextView.BufferType.EDITABLE);
+                }
+               /* final float m = t1;
                 final float n = t2;
 
                 String first = Float.toString(m);
-                String s;
+
 
 
                 String second = Float.toString(n);
@@ -100,11 +161,12 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
 
                // z.setText(Character.toString(second.replace("-","").charAt(0)));
 
-               // s1 = (String)x.getText();
+               // s1 = (String)x.getText();*/
+              /*  String s;
                 s = (String)y.getText();
                 String[] st = s.split(" ");
                 str = st[1];
-                System.out.println(str);
+                System.out.println(str);*/
 
             }
         });
@@ -115,7 +177,7 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onClick(View v) {
 
-                final float m = t1;
+              /*  final float m = t1;
                 final float n = t2;
 
                 String first = Float.toString(m);
@@ -149,23 +211,24 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
                 String[] st = s.split(" ");
                 str = st[1];
                 System.out.println(str);
-
+                */
                 String s1 = e.getText().toString();
-                System.out.println(s);
+               // System.out.println(s);
 
-                try{
+
+              /*  try{
                     String[] st1 = s1.split("/");
                     mon = st1[0];
                     day = st1[1];
                     yer = st1[2];
                     int mm = Integer.parseInt(mon);
                     int dd = Integer.parseInt(day);
-                    int yy = Integer.parseInt(yer);
+                   // int yy = Integer.parseInt(yer);
                    /* System.out.println(".."+str);
                     System.out.println(mon);
                     System.out.println(day);
                     System.out.println(yer);*/
-                    if((1 <= mm && mm <= 12) && (1 <= dd && dd <= 31)) {
+                  /*  if((1 <= mm && mm <= 12) && (1 <= dd && dd <= 31)) {
 
                         if (o1 == false && o2 == false && o3 == false) {
                             // System.out.println("yes");
@@ -194,6 +257,13 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
                 }
                 catch (Exception ex){
                     e.setText("Please enter your birth day",TextView.BufferType.EDITABLE);
+                }*/
+
+                if(o1 == true && o2 == true && o3 == true){
+                    z.setText("CORRECT");
+                }
+                else{
+                    z.setText("TRY AGAIN");
                 }
 
             }
@@ -241,6 +311,25 @@ public class satan3 extends AppCompatActivity implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         t1 = event.values[0];
         t2 = event.values[1];
+        //final float m = t1;
+        //final float n = t2;
+
+        String first = Float.toString(t1);
+        String s;
+
+
+        String second = Float.toString(t2);
+
+
+        if(o1 == false && o2 == false && o3 == false){
+            y.setText("MONTH: " + Character.toString(first.replace("-","").charAt(0))+ Character.toString(second.replace("-","").charAt(0)));
+        }
+        else if(o1 == true && o2 == false && o3 == false){
+            y.setText("DAY: " + Character.toString(first.replace("-","").charAt(0))+ Character.toString(second.replace("-","").charAt(0)));
+        }
+        else if(o1 == true && o2 == true && o3 == false){
+            y.setText("YEAR: " + Character.toString(first.replace("-","").charAt(0))+ Character.toString(second.replace("-","").charAt(0)));
+        }
     }
 
     @Override
